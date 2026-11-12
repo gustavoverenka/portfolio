@@ -497,7 +497,7 @@ function App() { //gerenciamento de estados
   );
 }
 
-createRoot(document.getElementById("root")!).render(//inicia o site
+createRoot(document.getElementById("root")!).render(//inicia o site 
   <React.StrictMode>
     <App />
   </React.StrictMode>,

@@ -1157,7 +1157,7 @@ button {
     padding: 24px;
   }
 }
-@media (prefers-reduced-motion: reduce) { /* recurso de acessibilidade e animaçoes reduzidas */
+@media (prefers-reduced-motion: reduce) { /* recurso de acessibilidade e animaçoes reduzidas  */
   html {
     scroll-behavior: auto;
   }
