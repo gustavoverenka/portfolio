@@ -99,7 +99,7 @@ function ProjectArtwork({ id }: { id: string }) {
     <div className={`artwork artwork-${id}`} aria-hidden="true">
       <div className="art-orbit orbit-one" />
       <div className="art-orbit orbit-two" />
-      {id === "taskflow" ? (
+      {id === "taskflow" ? ( //operador ternario
         <div className="task-composition">
           <div className="floating-chip">
             <ShieldCheck size={15} /> Autenticação JWT
@@ -179,7 +179,7 @@ function ProjectArtwork({ id }: { id: string }) {
   );
 }
 
-function App() {
+function App() { //gerenciamento de estados
   const [hash, setHash] = useState(window.location.hash);
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -187,13 +187,13 @@ function App() {
     (project) => hash === `#/projeto/${project.id}`,
   );
 
-  useEffect(() => {
+  useEffect(() => { //gerenciamento do estado hash
     const onHashChange = () => setHash(window.location.hash);
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
-  useEffect(() => {
+  useEffect(() => { //titulo da aba
     document.title = selected
       ? `${selected.name} — Gustavo Verenka`
       : "Gustavo Verenka — Desenvolvimento back-end";
@@ -215,9 +215,9 @@ function App() {
     return () => window.clearTimeout(timer);
   }, [copied]);
 
-  async function copyEmail() {
+  async function copyEmail() { //função de copiar email
     try {
-      await navigator.clipboard.writeText("falcgugu@gmail.com");
+      await navigator.clipboard.writeText("falcgugu@gmail.com"); //api do navegador
       setCopied(true);
       setCopyError(false);
     } catch {
@@ -225,8 +225,8 @@ function App() {
     }
   }
 
-  return (
-    <>
+  return (//fragment do react
+    <> 
       <div className="ambient" aria-hidden="true">
         <div className="ambient-blue" />
         <div className="ambient-purple" />
@@ -256,7 +256,7 @@ function App() {
         </a>
       </header>
       <main id="conteudo" className="shell">
-        {selected ? (
+        {selected ? (//condição
           <article className="project-detail">
             <a href="#projetos" className="back-link">
               <ArrowLeft size={16} /> Todos os projetos
@@ -361,10 +361,10 @@ function App() {
                 </a>
               </div>
               <div className="projects-grid">
-                {projects.map((project, index) => (
+                {projects.map((project, index) => (//renderização automatica dos cards
                   <article
-                    className={`project-card glass ${index === 0 ? "featured" : ""}`}
-                    key={project.id}
+                    className={`project-card glass ${index === 0 ? "featured" : ""}`}//primeiro projeto
+                    key={project.id}//identificação unica
                   >
                     <a
                       className="project-cover"
@@ -497,7 +497,7 @@ function App() {
   );
 }
 
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById("root")!).render(//inicia o site
   <React.StrictMode>
     <App />
   </React.StrictMode>,
