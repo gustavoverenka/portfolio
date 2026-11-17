@@ -188,7 +188,7 @@ function App() { //gerenciamento de estados
   );
 
   useEffect(() => { //gerenciamento do estado hash
-    const onHashChange = () => setHash(window.location.hash);
+    const onHashChange = () => setHash(window.location.hash);//evita varios callback
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
@@ -209,7 +209,7 @@ function App() { //gerenciamento de estados
     }
   }, [hash, selected]);
 
-  useEffect(() => {
+  useEffect(() => {//mensagem de sucesso ao copiar
     if (!copied) return;
     const timer = window.setTimeout(() => setCopied(false), 2500);
     return () => window.clearTimeout(timer);
@@ -225,7 +225,7 @@ function App() { //gerenciamento de estados
     }
   }
 
-  return (//fragment do react
+  return (//fragment do react - interface
     <> 
       <div className="ambient" aria-hidden="true">
         <div className="ambient-blue" />
@@ -339,7 +339,7 @@ function App() { //gerenciamento de estados
                 <span className="object-spark" />
               </div>
             </section>
-            <section
+            <section //vitrine de projetos
               id="projetos"
               className="projects-section"
               aria-labelledby="projects-title"
